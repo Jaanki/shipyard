@@ -170,8 +170,8 @@ func (np *NetworkPod) AwaitFinishVerbose(verbose bool) {
 	if finished {
 		np.TerminationCode = np.Pod.Status.ContainerStatuses[0].State.Terminated.ExitCode
 		np.TerminationMessage = np.Pod.Status.ContainerStatuses[0].State.Terminated.Message
-                fmt.Printf("termination message is %s", TerminationMessage)
-                fmt.Printf("type of termination message is %T", TerminationMessage)
+                fmt.Printf("termination message is %s", np.TerminationMessage)
+                fmt.Printf("type of termination message is %T", np.TerminationMessage)
 
 		if verbose {
 			Logf("Pod %q output:\n%s", np.Pod.Name, removeDupDataplaneLines(np.TerminationMessage))
